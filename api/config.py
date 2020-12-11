@@ -13,4 +13,3 @@ class DevelopmentConf(BaseConf):
     TESTING = False
     ENV = "development"
     APPNAME = "salesAPI"
-      
