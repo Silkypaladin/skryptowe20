@@ -30,4 +30,3 @@ def get_dates_range(start_date, end_date):
     for i in range(delta.days + 1):
         dates.append((start + datetime.timedelta(days=i)).strftime(DATE_FORMAT))
     return dates
-    
