@@ -47,4 +47,3 @@ def get_sales_for_days_range(start_date, end_date):
         else:
             response.append({'date': date, 'pln': {'sale': 0}, 'usd' : {'sale': 0}})
     return jsonify({'sales': response}), 200
-    
