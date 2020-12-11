@@ -15,4 +15,3 @@ def create_app(conf):
     app.register_blueprint(rates)
     app.register_blueprint(sales)
     return app
-     
