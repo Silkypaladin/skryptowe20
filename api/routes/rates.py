@@ -52,4 +52,3 @@ def get_last_rates(last):
         response.append({'date': item[0], 'rate': item[1], 'interpolated': item[2]})
     close_db()
     return jsonify({'rates': response}), 200
-    
