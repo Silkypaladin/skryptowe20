@@ -34,7 +34,7 @@ def populate_exchange_rates_table(rates_and_dates_interpolated):
     #conn = sqlite3.connect(DB_NAME)
     conn = psycopg2.connect(DATABASE_URL)
     cursor = conn.cursor()
-    cursor.executemany("INSERT INTO rates VALUES (?, ?, ?)", rates_and_dates_interpolated)
+    cursor.executemany("INSERT INTO rates VALUES (%s, %s, %s)", rates_and_dates_interpolated)
     conn.commit()
     conn.close()
 
