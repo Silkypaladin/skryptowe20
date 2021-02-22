@@ -43,7 +43,7 @@ def get_transaction_sums_for_days(years):
     conn = psycopg2.connect(DATABASE_URL)
     cursor = conn.cursor()
     sales_data = cursor.execute(
-        "SELECT SUM(sales), orderdate FROM sales GROUP BY orderdate HAVING year_id IN ({seq}) ORDER BY year_id;".format(seq=','.join(['?']*len(years))), years).fetchall()
+        "SELECT SUM(sales), orderdate FROM sales GROUP BY orderdate HAVING year_id IN ({seq}) ORDER BY year_id;".format(seq=','.join(['%s']*len(years))), years).fetchall()
     conn.close()
     return sales_data
 
@@ -52,7 +52,7 @@ def get_exchange_rates_for_days(days):
     conn = psycopg2.connect(DATABASE_URL)
     cursor = conn.cursor()
     rates = cursor.execute(
-        "SELECT rate, interpolated FROM rates GROUP BY date HAVING date IN ({seq}) ORDER BY date;".format(seq=','.join(['?']*len(days))), days).fetchall()
+        "SELECT rate, interpolated FROM rates GROUP BY date HAVING date IN ({seq}) ORDER BY date;".format(seq=','.join(['%s']*len(days))), days).fetchall()
     conn.close()
     return rates
 
